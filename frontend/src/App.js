@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import CreateUser from "./components/CreateUser";
+import ReadUsers from "./components/ReadUsers";
 function App() {
   const [users, setUsers] = useState([]);
   const [form, setForm] = useState({ name: "", email: "" });
@@ -24,6 +25,8 @@ function App() {
   return (
     <div className="container mt-5">
       <h2 className="mb-4">SQLite Database Interface</h2>
+      <CreateUser onUserAdded={fetchUsers} />
+      <ReadUsers users={users} />
 
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="mb-3">
